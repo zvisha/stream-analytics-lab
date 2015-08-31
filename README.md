@@ -46,7 +46,7 @@ Follow the steps below to create an Event Hub.
 4.	Under **SHARED ACCESS POLICIES**, create a new policy with **MANAGE** permissions.
 
 
-  	![Shared Access Policies where you can create a policy with Manage permissions.](https://github.com/Azure/azure-content/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
+  	![Shared Access Policies where you can create a policy with Manage permissions.](https://github.com/Azure/azure-content/blob/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
 
 5.	Click **SAVE** at the bottom of the page.
 6.	Navigate to the **DASHBOARD** and click **CONNECTION INFORMATION** at the bottom of the page and copy and save the connection information. (Use the copy icon that appears under the search icon.)
@@ -68,7 +68,7 @@ Follow these steps to set up the application:
 5.	Build the solution
 6.	Start the application.  You will see Tweet events with the CreatedAt, Topic, and SentimentScore values being sent to your Event Hub:
 
-	![Sentiment analysis: SentimentScore values sent to an event hub.](https://github.com/Azure/azure-content/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
+	![Sentiment analysis: SentimentScore values sent to an event hub.](https://github.com/Azure/azure-content/blob/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
 ## Create Stream Analytics job
 
@@ -84,7 +84,7 @@ Now that we have Tweet events streaming in real-time from Twitter, we can set up
 	* **STORAGE ACCOUNT**: Choose the Storage account that you would like to use to store monitoring data for all Stream Analytics jobs running within this region. You have the option to choose an existing Storage account or to create a new one.
 
 3.	Click **STREAM ANALYTICS** in the left pane to list the Stream Analytics jobs.
-	![Stream Analytics service icon](https://github.com/Azure/azure-content/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+	![Stream Analytics service icon](https://github.com/Azure/azure-content/blob/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
 4.	The new job will be shown with a status of **CREATED**. Notice that the **START** button on the bottom of the page is disabled. You must configure the job input, output, and query before you can start the job.
 
@@ -137,7 +137,7 @@ To start with, we will do a simple pass-through query that projects all the fiel
 4.	Browse to your sample .JSON file
 5.	Click the check button and see the results displayed below the query definition.
 
-	![Results displayed below query definition](https://github.com/Azure/azure-content/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sentiment-by-topic.png)
+	![Results displayed below query definition](https://github.com/Azure/azure-content/blob/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sentiment-by-topic.png)
 
 #### Count of tweets by topic: Tumbling window with aggregation
 
@@ -168,7 +168,7 @@ To identify trending topics we'll look for topics that cross a threshold value f
 
 2.	Click **RERUN** under the query editor to see the results of the query.
 
-	![Sliding Window query output](https://github.com/Azure/azure-content/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-query-output.png)
+	![Sliding Window query output](https://github.com/Azure/azure-content/blob/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-query-output.png)
 
 #### Count of mentions and sentiment: Tumbling window with aggregation
 

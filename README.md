@@ -18,7 +18,7 @@
 
 # Disclamer
 
-This tutorial is very (!!!) heavily based on [this](https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-twitter-sentiment-analysis-trends/). i just did some small modifications to connect it to the DLD labs theame: Movies.
+This tutorial is very (!!!) heavily based on [this](https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-twitter-sentiment-analysis-trends/) tutorial. i just did some small modifications to connect it to the DLD labs theme: Movies.
 
 # Social media analysis: Real-time Twitter analysis in Azure Stream Analytics
 
@@ -64,11 +64,10 @@ Follow these steps to set up the application:
 
 	Note that you will need to make an empty application to generate a token.  
 3.	Replace the EventHubConnectionString and EventHubName values in App.config with your Event Hub connection string and name.
-4.	*Optional:* Adjust the keywords to search for.  As a default, this application looks for "Azure,Skype,XBox,Microsoft,Seattle".  You can adjust the values for twitter_keywords in App.config, if desired.
+4.	*Optional:* Adjust the keywords to search for.  As a default, this application looks for a popular movie titles.  You can adjust the values for twitter_keywords in App.config, if desired.
 5.	Build the solution
-6.	Start the application.  You will see Tweet events with the CreatedAt, Topic, and SentimentScore values being sent to your Event Hub:
+6.	Start the application.  You will see Tweet events with the CreatedAt and Topic values being sent to your Event Hub in the console.
 
-	![Sentiment analysis: SentimentScore values sent to an event hub.](https://github.com/zvisha/azure-content/blob/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
 ## Create Stream Analytics job
 
@@ -84,7 +83,6 @@ Now that we have Tweet events streaming in real-time from Twitter, we can set up
 	* **STORAGE ACCOUNT**: Choose the Storage account that you would like to use to store monitoring data for all Stream Analytics jobs running within this region. You have the option to choose an existing Storage account or to create a new one.
 
 3.	Click **STREAM ANALYTICS** in the left pane to list the Stream Analytics jobs.
-	![Stream Analytics service icon](https://github.com/zvisha/azure-content/blob/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
 4.	The new job will be shown with a status of **CREATED**. Notice that the **START** button on the bottom of the page is disabled. You must configure the job input, output, and query before you can start the job.
 
@@ -137,7 +135,6 @@ To start with, we will do a simple pass-through query that projects all the fiel
 4.	Browse to your sample .JSON file
 5.	Click the check button and see the results displayed below the query definition.
 
-	![Results displayed below query definition](https://github.com/zvisha/azure-content/blob/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sentiment-by-topic.png)
 
 #### Count of tweets by topic: Tumbling window with aggregation
 
@@ -168,16 +165,13 @@ To identify trending topics we'll look for topics that cross a threshold value f
 
 2.	Click **RERUN** under the query editor to see the results of the query.
 
-	![Sliding Window query output](https://github.com/zvisha/azure-content/blob/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-query-output.png)
+#### Count of mentions: Tumbling window with aggregation
 
-#### Count of mentions and sentiment: Tumbling window with aggregation
-
-The final query we will test uses a TumblingWindow to obtain the number of mentions and average, minimum, maximum, and standard deviation of sentiment score for each topic every 5 seconds.
+The final query we will test uses a TumblingWindow to obtain the number of mentions for each topic every 5 seconds.
 
 1.	Change the query in the code editor to:
 
-		SELECT System.Timestamp as Time, Topic, COUNT(*), AVG(SentimentScore), MIN(SentimentScore),
-    	Max(SentimentScore), STDEV(SentimentScore)
+		SELECT System.Timestamp as Time, Topic, COUNT(*)
 		FROM TwitterStream TIMESTAMP BY CreatedAt
 		GROUP BY TUMBLINGWINDOW(s, 5), Topic
 
@@ -223,9 +217,8 @@ Since a job input, query and output have all been specified, we are ready to sta
 
 ## View output for sentiment analysis
 
-Once your job is running and processing the real-time Twitter stream, choose how you want to view the output for sentiment analysis. Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you could extend your application to include a customized dashboard over your output, like the one pictured below using [Power BI](https://powerbi.com/).
+Once your job is running and processing the real-time Twitter stream, choose how you want to view the output for twitter analysis. Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you could extend your application to include a customized dashboard over your output, like the one pictured below using [Power BI](https://powerbi.com/).
 
-![Social media analysis: Stream Analytics sentiment analysis (opinion mining) output in a Power BI dashboard.](/azure-content/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Get support
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 

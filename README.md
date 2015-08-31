@@ -223,7 +223,7 @@ Since a job input, query and output have all been specified, we are ready to sta
 
 Once your job is running and processing the real-time Twitter stream, choose how you want to view the output for sentiment analysis. Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you could extend your application to include a customized dashboard over your output, like the one pictured below using [Power BI](https://powerbi.com/).
 
-![Social media analysis: Stream Analytics sentiment analysis (opinion mining) output in a Power BI dashboard.](http://raw.githubusercontent.com/Azure/azure-content/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
+![Social media analysis: Stream Analytics sentiment analysis (opinion mining) output in a Power BI dashboard.](/azure-content/master/articles/stream-analytics/media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Get support
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 

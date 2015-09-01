@@ -18,7 +18,7 @@
 
 # Disclamer
 
-This tutorial is very (!!!) heavily based on [this](https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-twitter-sentiment-analysis-trends/) tutorial. i just did some small modifications to connect it to the DLD labs theme: Movies.
+This tutorial is heavily based on [this](https://azure.microsoft.com/en-us/documentation/articles/stream-analytics-twitter-sentiment-analysis-trends/) tutorial. Small modifications were made to apply it to the **Movies** DLD labs theme.
 
 # Social media analysis: Real-time Twitter analysis in Azure Stream Analytics
 
@@ -32,7 +32,7 @@ A news media website is interested in getting an edge over its competitors by fe
 
 ## Prerequisites
 1.	A Twitter account is required for this tutorial.  
-2.	This walkthough uses a Twitter client application which is located on GitHub.  Download it [here](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) and follow the steps below to set up your solution.
+2.	This walk-through uses a Twitter client application which is located on GitHub.  Download it [here](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) and follow the steps below to set up your solution.
 
 ## Create an Event Hub input and a Consumer Group
 
@@ -41,7 +41,7 @@ The sample application will generate events and push them to an Event Hubs insta
 Follow the steps below to create an Event Hub.
 
 1.	In the Azure Portal click **NEW** > **APP SERVICES** > **SERVICE BUS** > **EVENT HUB** > **QUICK CREATE** and provide a name, region, and new or existing namespace to create a new Event Hub.  
-2.	As a best practice, each Stream Analytics job should read from a single Event Hubs Consumer Group. We will walk you through the process of creating a Consumer Group below and you can learn more about them here.  To create a Consumer Group, navigate to the newly created Event Hub and click the **CONSUMER GROUPS** tab, then click **CREATE** on the bottom of the page and provide a name for your Consumer Group.
+2.	As a best practice, each Stream Analytics job should read from a single Event Hubs Consumer Group. We will walk you through the process of creating a Consumer Group below and you can learn more about them here XXX Where? XXX.  To create a Consumer Group, navigate to the newly created Event Hub and click the **CONSUMER GROUPS** tab, then click **CREATE** on the bottom of the page and provide a name for your Consumer Group.
 3.	To grant access to the Event Hub, we will need to create a shared access policy.  Click the **CONFIGURE** tab of your Event Hub.
 4.	Under **SHARED ACCESS POLICIES**, create a new policy with **MANAGE** permissions.
 
@@ -58,15 +58,15 @@ We have provided a client application that will tap into Twitter data via [Twitt
 Follow these steps to set up the application:
 
 1.	[Download the TwitterClient solution](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
-2.	Open App.config and replace oauth_consumer_key, oauth_consumer_secret, oauth_token, oauth_token_secret with Twitter tokens with your values.  
+2.	Open App.config and replace `oauth_consumer_key`, `oauth_consumer_secret`, `oauth_token`, `oauth_token_secret` with Twitter tokens with your values.  
 
 	[Steps to generate an OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)  
 
 	Note that you will need to make an empty application to generate a token.  
-3.	Replace the EventHubConnectionString and EventHubName values in App.config with your Event Hub connection string and name.
-4.	*Optional:* Adjust the keywords to search for.  As a default, this application looks for a popular movie titles.  You can adjust the values for twitter_keywords in App.config, if desired.
+3.	Replace the `EventHubConnectionString` and `EventHubName` values in App.config with your Event Hub connection string and name.
+4.	*Optional:* Adjust the keywords to search for.  As a default, this application looks for popular movie titles.  You can adjust the values for `twitter_keywords` in App.config, if desired.
 5.	Build the solution
-6.	Start the application.  You will see Tweet events with the CreatedAt and Topic values being sent to your Event Hub in the console.
+6.	Start the application.  You will see Tweet events with the `CreatedAt` and `Topic` values being sent to your Event Hub in the console.
 
 
 ## Create Stream Analytics job
@@ -203,8 +203,8 @@ Follow the steps below to create a container for Blob storage, if you don't alre
 
 4.	Click the right button.
 5.	Specify the following values:
-	* **EVENT SERIALIZER FORMAT**: JSON
-	* **ENCODING**: UTF8
+	* **EVENT SERIALIZER FORMAT**: `JSON`
+	* **ENCODING**: `UTF8`
 6.	Click the check button to add this source and to verify that Stream Analytics can successfully connect to the storage account.
 
 ## Start job
